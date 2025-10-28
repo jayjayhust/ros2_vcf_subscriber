@@ -18,7 +18,7 @@ sudo apt install ros-${ROS_DISTRO}-cv-bridge ros-${ROS_DISTRO}-image-transport
 sudo apt install libopencv-dev
 
 # ros2 env load
-source install/setup.bash
+source /opt/ros/humble/setup.bash
 
 cd src
 
@@ -30,6 +30,9 @@ cd vcf_subscriber
 
 # 重新编译
 colcon build
+
+# ros2 package install
+source install/setup.bash
 
 # 运行节点（现在会有详细的输出信息）
 ros2 run vcf_subscriber vcf_subscriber
