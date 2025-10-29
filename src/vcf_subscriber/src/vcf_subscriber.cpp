@@ -1,13 +1,13 @@
-#include <iostream>
-#include <memory>
-#include <chrono>
-#include <opencv2/opencv.hpp>
-#include "rclcpp/rclcpp.hpp"
-#include "sensor_msgs/msg/image.hpp"
-#include "cv_bridge/cv_bridge.h"
-#include <sensor_msgs/msg/compressed_image.hpp>
-#include "image_transport/image_transport.hpp"
-#include "rclcpp/qos.hpp"
+#include <iostream>  // 标准输入输出
+#include <memory>  // 智能指针
+#include <chrono>  // 时间处理
+#include <opencv2/opencv.hpp> // OpenCV主头文件
+#include "rclcpp/rclcpp.hpp" // ROS 2 C++客户端库
+#include "sensor_msgs/msg/image.hpp" // 图像消息类型
+#include "cv_bridge/cv_bridge.h" // cv_bridge头文件
+#include <sensor_msgs/msg/compressed_image.hpp> // 压缩图像消息类型
+#include "image_transport/image_transport.hpp" // 图像传输
+#include "rclcpp/qos.hpp" // QoS配置
 
 using std::placeholders::_1;
 

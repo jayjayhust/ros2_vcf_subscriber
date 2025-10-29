@@ -23,12 +23,10 @@ source /opt/ros/humble/setup.bash
 # 清理之前的编译结果（重要！）
 rm -rf build install log
 
-# 重新编译
+# 重新编译(after every modification, start from here)
 colcon build --packages-select vcf_subscriber
-
 # 加载环境
 source install/setup.bash
-
 # 运行节点（现在会有详细的输出信息）
 ros2 run vcf_subscriber vcf_subscriber
 ```
