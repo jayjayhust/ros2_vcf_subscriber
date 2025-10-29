@@ -315,16 +315,16 @@ private:
         // }
 
         cv::Mat depth_image;
-        depth_image = cv::Mat(480, 640, CV_32FC1, const_cast<uchar *>(msg->data.data()));
+        depth_image = cv::Mat(480, 640, CV_32FC1, const_cast<uchar *>(msg->data.data())); // 深度图像为32FC1格式
 
         cv::Mat resized_image;
-        cv::resize(depth_image, resized_image, cv::Size(1280, 720));
+        cv::resize(depth_image, resized_image, cv::Size(1280, 720)); // 调整尺寸
         // 将深度图像转换为伪彩色图像
         double minVal, maxVal;
-        cv::minMaxLoc(resized_image, &minVal, &maxVal);
+        cv::minMaxLoc(resized_image, &minVal, &maxVal); // 获取最小和最大深度值
         cv::Mat depth_colored;
-        resized_image.convertTo(depth_colored, CV_8UC1, 255 / (maxVal - minVal), -minVal * 255 / (maxVal - minVal));
-        cv::applyColorMap(depth_colored, depth_colored, cv::COLORMAP_JET);
+        resized_image.convertTo(depth_colored, CV_8UC1, 255 / (maxVal - minVal), -minVal * 255 / (maxVal - minVal)); // 归一化到0-255
+        cv::applyColorMap(depth_colored, depth_colored, cv::COLORMAP_JET); // 应用伪彩色
         cv::imshow("Depth Image", depth_colored);
         cv::waitKey(1); // 等待1毫秒以更新窗口
     }
